@@ -4,8 +4,8 @@
 
 <head>
 
-    <title>Paragon Calculator</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/siwalikm/quick-form-css@2.2.2/qfc-dark.css">
+    <title>정복자 계산기</title>
+    <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="bignumber.min.js"></script>
@@ -46,17 +46,17 @@
                 unit *= 1000;
             }
             if (unit === 1) {
-                $("#xpresultlabel").text("XP Needed");
+                $("#xpresultlabel").text("필요 경험치");
             } else if (unit === 1000) {
-                $("#xpresultlabel").text("Thousand XP Needed");
+                $("#xpresultlabel").text("필요 경험치 (천만)");
             } else if (unit === 1000000) {
-                $("#xpresultlabel").text("Million XP Needed");
+                $("#xpresultlabel").text("필요 경험치 (백만)");
             } else if (unit === 1000000000) {
-                $("#xpresultlabel").text("Billion XP Needed");
+                $("#xpresultlabel").text("필요 경험치 (십억)");
             } else if (unit === 1000000000000) {
-                $("#xpresultlabel").text("Trillion XP Needed");
+                $("#xpresultlabel").text("필요 경험치 (조)");
             } else if (unit === 1000000000000000) {
-                $("#xpresultlabel").text("Quadrillion XP Needed");
+                $("#xpresultlabel").text("필요 경험치 (천조)");
             }
             $("#xpresult").val(xpNeeded.dividedBy(unit).toFixed(3, 4));
             $("#hoursresult").val(hours.toFixed(1, 4));
@@ -70,13 +70,13 @@
         var thousand = BigNumber('1000');
         function Human(val) {
             if (val.isGreaterThan(billion)) {
-                return val.dividedBy(billion).toFixed(2, 4) + ' billion';
+                return val.dividedBy(billion).toFixed(2, 4) + ' 십억';
             }
             if (val.isGreaterThan(million)) {
-                return val.dividedBy(million).toFixed(2, 4) + ' million';
+                return val.dividedBy(million).toFixed(2, 4) + '백만';
             }
             if (val.isGreaterThan(thousand)) {
-                return val.dividedBy(thousand).toFixed(2, 4) + ' thousand';
+                return val.dividedBy(thousand).toFixed(2, 4) + ' 천';
             }
             return val.toFixed(2, 4);
         }
@@ -212,7 +212,7 @@
                 data: {
                     labels: days,
                     datasets: [{
-                        label: 'Paragon Level',
+                        label: '정복자 레벨',
                         data: level,
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
@@ -223,7 +223,7 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Paragon Level Over Time'
+                        text: '시간에 따른 정복자 레벨'
                     },
                     tooltips: {
                         mode: 'index',
@@ -238,14 +238,14 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Day'
+                                labelString: '일'
                             }
                         }],
                         yAxes: [{
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Paragon Level'
+                                labelString: '정복자 레벨'
                             }
                         }]
                     }
@@ -260,8 +260,8 @@
 </head>
 
 <body>
-    <div id="maindiv" class="qfc-container" hidden>
-        <h3>Add two paragons</h3>
+    <div id="maindiv" class="qfc-container">
+        <h3>정복자 레벨 합산</h3>
         <table>
             <tr>
                 <td><input id="p1" type="text" /></td>
@@ -272,116 +272,80 @@
             </tr>
         </table>
 
-        <h3>Pools</h3>
+       <h3>투영</h3>
         <table>
-            <tr><td colspan="2"><h6>--- Inputs ---</h6></td></tr>
+            <tr><td colspan="2"><h6>--- 파티경험치 ---</h6></td></tr>
             <tr>
-                <td>Current paragon</td>
+                <td>현재 레벨</td>
                 <td><input id="poolsparagon" type="text" /></td>
             </tr>
             <tr>
-                <td>GR Level</td>
+                <td>대균 단계</td>
                 <td><input id="poolsgrlevel" type="text" /></td>
             </tr>
             <tr>
-                <td>Number of Players</td>
+                <td>파티원 수</td>
                 <td><input id="poolsnumplayers" type="text" /></td>
             </tr>
             <tr>
-                <td>XP From Gear</td>
+                <td>추가 경험치(장비)</td>
                 <td><input id="poolsxpgear" type="text" /></td>
             </tr>
             <tr>
-                <td colspan="2"><h6>--- RESULT ---</h6></td>
+                <td colspan="2"><h6>--- 투영 ---</h6></td>
             </tr>
             <tr>
-                <td>Pools For Rift</td>
+                <td>대균열중 필요한 투영</td>
                 <td><input id="poolsresultrift" type="text" readonly /></td>
             </tr>
             <tr>
-                <td>Pools For Close</td>
+                <td>대균열 완료시 필요한 투영</td>
                 <td><input id="poolsresultclose" type="text" readonly /></td>
             </tr>
             <tr>
-                <td>Total Pools</td>
+                <td>총 필요한 투영</td>
                 <td><input id="poolsresulttotal" type="text" readonly /></td>
             </tr>
-            <tr><td colspan="2"><h6>--- Raw XP Numbers ---</h6></td></tr>
+            <tr><td colspan="2"><h6>--- 결과 ---</h6></td></tr>
             <tr>
-                <td>Rift [Unpooled]</td>
-                <td>
-                    <input id="baseriftxp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Rift [Pooled]</td>
-                <td>
-                    <input id="pooledriftxp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Close XP [Unpooled]</td>
-                <td>
-                    <input id="baseclosexp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Close XP [Pooled]</td>
-                <td>
-                    <input id="pooledclosexp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Total XP [Unpooled]</td>
-                <td>
-                    <input id="basetotalxp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Total XP [Close Pooled]</td>
-                <td>
-                    <input id="closepooledtotalxp" type="text" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>Total XP [Fully Pooled]</td>
+                <td>투영 중첩 후 획득 경험치</td>
                 <td>
                     <input id="allpooledtotalxp" type="text" readonly />
                 </td>
             </tr>
         </table>
 
-        <h3>How many days to reach goal?</h3>
+        <h3>목표 레벨에 얼마나 필요할까?</h3>
         <table>
             <tr>
-                <td>Current paragon</td>
+                <td>현재 레벨</td>
                 <td><input id="current" type="text" /></td>
             </tr>
             <tr>
-                <td>Desired paragon</td>
+                <td>목표 레벨</td>
                 <td><input id="desired" type="text" /></td>
             </tr>
             <tr>
-                <td>Billion XP Per Hour</td>
+                <td>시간당 경험치 (1000=1조)</td>
                 <td><input id="xphr" type="text" /></td>
             </tr>
             <tr>
-                <td>Hours Per Day</td>
+                <td>하루에 도는 시간</td>
                 <td><input id="hrsperday" type="text" /></td>
             </tr>
             <tr>
-                <td colspan="2">--- RESULT ---</td>
+                <td colspan="2">--- 결과 ---</td>
             </tr>
             <tr>
-                <td id="xpresultlabel">Trillion XP Needed</td>
+                <td id="xpresultlabel">필요 경험치 (조)</td>
                 <td><input id="xpresult" type="text" readonly /></td>
             </tr>
             <tr>
-                <td>Hours Needed</td>
+                <td>필요 시간</td>
                 <td><input id="hoursresult" type="text" readonly /></td>
             </tr>
             <tr>
-                <td>Days Needed</td>
+                <td>필요 일수</td>
                 <td><input id="daysresult" type="text" readonly /></td>
             </tr>
         </table>

@@ -1,34 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url("ionicons.min.css");
-*{text-decoration: none;}
 body {
-    --main-bg-color: #777;
+    --main-bg-color: #2B2B2B;
     background: var(--main-bg-color);
 }
-#maindiv{border: 4px solid #000}
-.dia_h2{font-size: 40px; border-bottom: none; text-align: center; font-weight: 700; color: rgba(0,0,0,0.9); border-bottom: 2px solid #333; padding-bottom: 25px}
-h3{border-bottom: 1px solid #000}
 
-footer p{text-align: center; color: #FFF}
 .qfc-container {
-    --form-theme-color: none;
-    --form-bg-color: #FFF;
+    --form-theme-color: #777;
+    --form-bg-color: white;
     --input-text-color: black;
     --button-hover: #4e5050;
     --input-bg-gray: #E2E5E5;
     /* border: 7px solid var(--form-theme-color); */
-    
     border-top: 7px solid var(--form-theme-color);
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
-    background-color:  rgba(255,255,255,1);
+    background-color: var(--form-bg-color);
+    background-image: url(img/background_img.jpg)
     padding: 35px;
     width: 50%;
     max-width:750px;
     margin: 30px auto;
     margin-top: 30px;
-    color: rgba(0,0,50,0.9);
-    
 }
 
 .qfc-container ::-webkit-input-placeholder {
@@ -54,7 +47,7 @@ footer p{text-align: center; color: #FFF}
 .qfc-container input {
     width: 200px;
     display: block;
-    border: none
+    border: none;
     padding: 12px !important;
     border-bottom: solid 1px var(--form-theme-color);
     -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
@@ -65,8 +58,8 @@ footer p{text-align: center; color: #FFF}
 
 .qfc-container input:focus,
 input:valid {
-    box-shadow: 4px 4px 4px #555;
-    outline:none;
+    box-shadow: none;
+    outline: none;
     background-position: 0 0;
 }
 
@@ -126,7 +119,7 @@ h5,
 h6 {
     text-decoration: none;
     position: relative;
-    margin: 0 0;
+    margin: 50px 0 0;
     font-weight: 400;
 }
 
@@ -140,7 +133,7 @@ h6 {
     position: relative;
     display: block;
     bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 31px;
     width: 100%;
     border: 1px solid var(--form-theme-color);
 }
@@ -273,9 +266,8 @@ textarea:focus,
 select:focus {
     border-bottom: 3px solid var(--form-theme-color);
     color: var(--form-theme-color);
-    font-weight: 400;
+    font-weight: 600;
     outline: none;
-    cursor: pointer;
 }
 
 .qfc-container input[type='radio']:after {

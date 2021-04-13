@@ -70,13 +70,13 @@
         var thousand = BigNumber('1000');
         function Human(val) {
             if (val.isGreaterThan(billion)) {
-                return val.dividedBy(billion).toFixed(2, 4) + ' 십억';
+                return val.dividedBy(billion).toFixed(2, 4) + ' billion';
             }
             if (val.isGreaterThan(million)) {
-                return val.dividedBy(million).toFixed(2, 4) + '백만';
+                return val.dividedBy(million).toFixed(2, 4) + ' million';
             }
             if (val.isGreaterThan(thousand)) {
-                return val.dividedBy(thousand).toFixed(2, 4) + ' 천';
+                return val.dividedBy(thousand).toFixed(2, 4) + ' thousand';
             }
             return val.toFixed(2, 4);
         }
@@ -208,16 +208,16 @@
                 existingChart.destroy()
             }
             existingChart = new Chart(ctx, {
-                type: 'line',
+                type: 'line', 
                 data: {
                     labels: days,
                     datasets: [{
                         label: '정복자 레벨',
                         data: level,
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgba(255, 250, 250,1)',
+                        borderColor: 'rgba(255, 150, 150,1)',
                         fill: false,
-                    }]
+                        }]
                 },
                 options: {
                     responsive: true,
@@ -245,8 +245,8 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: '정복자 레벨'
-                            }
+                                labelString: '정복자 레벨',
+                                }
                         }]
                     }
                 }
@@ -261,20 +261,21 @@
 
 <body>
     <div id="maindiv" class="qfc-container">
-        <h3>정복자 레벨 합산</h3>
+        <a href="/"><p class="dia_h2">정복자계산기</p></a>
+        <h3>&diams; 정복자 레벨 합산</h3>
         <table>
             <tr>
                 <td><input id="p1" type="text" /></td>
                 <td width="100">+</td>
                 <td><input id="p2" type="text" /></td>
-                <td width="100">=</td="center">
+                <td width="100">=</td>
                 <td><input id="psum" type="text" readonly /></td>
             </tr>
         </table>
 
-       <h3>투영</h3>
+       <h3>&diams; 투영</h3>
         <table>
-            <tr><td colspan="2"><h6>--- 파티경험치 ---</h6></td></tr>
+            <tr><td colspan="2"><h6>&#8226; 파티경험치 </h6></td></tr>
             <tr>
                 <td>현재 레벨</td>
                 <td><input id="poolsparagon" type="text" /></td>
@@ -292,7 +293,7 @@
                 <td><input id="poolsxpgear" type="text" /></td>
             </tr>
             <tr>
-                <td colspan="2"><h6>--- 투영 ---</h6></td>
+                <td colspan="2"><h6>&#8226; 투영 </h6></td>
             </tr>
             <tr>
                 <td>대균열중 필요한 투영</td>
@@ -306,7 +307,7 @@
                 <td>총 필요한 투영</td>
                 <td><input id="poolsresulttotal" type="text" readonly /></td>
             </tr>
-            <tr><td colspan="2"><h6>--- 결과 ---</h6></td></tr>
+            <tr><td colspan="2"><h6>&#8226; 결과</h6></td></tr>
             <tr>
                 <td>투영 중첩 후 획득 경험치</td>
                 <td>
@@ -315,7 +316,7 @@
             </tr>
         </table>
 
-        <h3>목표 레벨에 얼마나 필요할까?</h3>
+        <h3>&diams; 목표까지 얼마나 필요할까?</h3>
         <table>
             <tr>
                 <td>현재 레벨</td>
@@ -334,7 +335,7 @@
                 <td><input id="hrsperday" type="text" /></td>
             </tr>
             <tr>
-                <td colspan="2">--- 결과 ---</td>
+                <td colspan="2"> &#45;결과</td>
             </tr>
             <tr>
                 <td id="xpresultlabel">필요 경험치 (조)</td>
@@ -349,9 +350,12 @@
                 <td><input id="daysresult" type="text" readonly /></td>
             </tr>
         </table>
-
         <canvas id="paragonChart" width="400" height="400"></canvas>
+    
     </div>
+    <footer>
+        <p>Copyright © 2021 StaR All Rights Reserved.</p>
+    </footer>
 </body>
 
 </html>

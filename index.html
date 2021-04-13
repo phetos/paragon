@@ -10,8 +10,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="bignumber.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="paragon.js"></script>
     <script>
+        $(document).ready(function() {
+            $('body').stop().fadeIn(1900)
+            $('.qfc-container').mouseenter(function(){
+                $(this).stop().css('opacity', '1')
+            })
+            $('.qfc-container').mouseleave(function(){
+                $(this).stop().css('opacity', '0.8')
+            })
+        })
         "use strict";
 
         function CalculateParagonSum() {
@@ -214,8 +224,8 @@
                     datasets: [{
                         label: '정복자 레벨',
                         data: level,
-                        backgroundColor: 'rgba(255, 250, 250,1)',
-                        borderColor: 'rgba(255, 150, 150,1)',
+                        backgroundColor: 'rgba(0, 0, 0,1)',
+                        borderColor: 'rgba(100, 100, 255,0.7)',
                         fill: false,
                         }]
                 },
@@ -261,7 +271,7 @@
 
 <body>
     <div id="maindiv" class="qfc-container">
-        <a href="/"><p class="dia_h2">정복자계산기</p></a>
+        <a href="https://phetos.github.io/paragon/index.html"><p class="dia_h2">정복자계산기</p></a>
         <h3>&diams; 정복자 레벨 합산</h3>
         <table>
             <tr>
@@ -355,6 +365,8 @@
     </div>
     <footer>
         <p>Copyright © 2021 StaR All Rights Reserved.</p>
+        <p class="big_do">Donate</p>
+        <a href="https://donaricano.com/mypage/1648774274_CM5I5k" target="_blank" class="mar_left">KAKAOPAY</a><a href="https://www.buymeacoffee.com/phetos" target="_blank">PAYPAL</a>
     </footer>
 </body>
 

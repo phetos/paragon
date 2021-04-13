@@ -2,14 +2,23 @@
 @import url("ionicons.min.css");
 *{text-decoration: none;}
 body {
-    --main-bg-color: #777;
+    --main-bg-color: #AAA;
     background: var(--main-bg-color);
+    display: none;
 }
-#maindiv{border: 4px solid #000}
-.dia_h2{font-size: 40px; border-bottom: none; text-align: center; font-weight: 700; color: rgba(0,0,0,0.9); border-bottom: 2px solid #333; padding-bottom: 25px}
-h3{border-bottom: 1px solid #000}
-
+/*StaR */
+#maindiv{border: 0 solid #000; box-shadow: 10px 10px 10px #555; opacity: 0.8}
+.dia_h2{font-size: 40px; border-bottom: none; text-align: center; font-weight: 700; color: #F1F1F1; border-bottom: 2px solid #333; padding-bottom: 25px; text-shadow: 1px 1px 4px #000}
+.dia_h2:hover{color: #55F}
+h3{border-bottom: 10px solid #D5D5D5;}
 footer p{text-align: center; color: #FFF}
+footer{text-align: center;}
+footer a{text-align: center; display: inline; border: 1px solid #FFF; margin-left:10px; color: #FFF; background-color: #111; padding: 10px; border-radius: 20px}
+.mar_left{margin-left: 0;}
+.big_do{font-size: 18px; font-weight: 800; margin: none; text-shadow: 1px 1px 2px #000}
+
+/*StaR */
+
 .qfc-container {
     --form-theme-color: none;
     --form-bg-color: #FFF;
@@ -23,7 +32,7 @@ footer p{text-align: center; color: #FFF}
     font-family: 'Roboto', sans-serif;
     background-color:  rgba(255,255,255,1);
     padding: 35px;
-    width: 50%;
+    width: 60%;
     max-width:750px;
     margin: 30px auto;
     margin-top: 30px;
@@ -54,9 +63,8 @@ footer p{text-align: center; color: #FFF}
 .qfc-container input {
     width: 200px;
     display: block;
-    border: none
     padding: 12px !important;
-    border-bottom: solid 1px var(--form-theme-color);
+    
     -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
     background-repeat: no-repeat;
@@ -65,9 +73,8 @@ footer p{text-align: center; color: #FFF}
 
 .qfc-container input:focus,
 input:valid {
-    box-shadow: 4px 4px 4px #555;
+    box-shadow: 1px 1px 10px #555;
     outline:none;
-    background-position: 0 0;
 }
 
 .qfc-container input::-webkit-input-placeholder {
